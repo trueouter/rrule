@@ -11,11 +11,12 @@ import Data.Text (Text, intercalate, pack, unpack)
 import Data.Time.Clock (UTCTime)
 import Data.Time.Format (parseTimeM, defaultTimeLocale)
 import Data.Time.RRule.Types (defaultRRule, RRule(..), Day(..), Frequency(..), ToRRule, TimeOrDate(..))
+import Data.Void (Void)
 import Text.Megaparsec hiding (count)
 import Text.Megaparsec.Char.Lexer
 import qualified Data.Time.Calendar as Cal (Day, toGregorian)
 
-type Parser = Parsec () Text
+type Parser = Parsec Void Text
 
 parseRRule :: Parser RRule
 parseRRule = do
